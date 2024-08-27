@@ -1,5 +1,15 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'dotnetapp-sc'
+    appType: 'webAppLinux'
+    appName: 'dotnet1-webapp'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
