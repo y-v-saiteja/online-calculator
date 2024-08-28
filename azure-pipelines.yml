@@ -10,6 +10,6 @@ steps:
   inputs:
     azureSubscription: 'dotnetapp-sc'
     appType: 'webAppLinux'
-    appName: 'dotnet1-webapp'
+    appName: 'dotnet-webapp'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
